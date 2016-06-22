@@ -60,6 +60,7 @@ public class Startup
         var result = store.Certificates.Cast<X509Certificate2>().Select(cert => new {
             pem = cert.ExportPEMEncoded(),
             subject = cert.SubjectName.Name,
+            friendlyName = cert.FriendlyName,
             thumbprint = cert.Thumbprint,
             issuer = cert.IssuerName.Name
         });
